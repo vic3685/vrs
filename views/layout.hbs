@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{page.title}}</title>
+	<link rel="stylesheet" href="/styles/bootstrap.min.css" />
+	<link rel="stylesheet" href="/compiled/styles.css" />
+	{{#dev}}
+	<!-- Livereload script. Automatically reloads CSS when changed. -->
+	<script src="http://localhost:{{livereload_port}}/livereload.js?snipver=1"></script>
+	{{/dev}}
+	<!-- Site context, made available for use in client side javascript -->
+	<script>{{{context}}}</script>
+	<script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+	<script src="/compiled/scripts.js"></script>
+
+</head>
+<body id="page-{{page.name}}">
+
+	{{{body}}}
+
+</body>
+</html>
