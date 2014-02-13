@@ -173,7 +173,8 @@ module.exports = function( grunt ){
 		solidus.start({
 			port: solidus_port,
 			dev: true,
-			livereload_port: livereload_port
+			livereload_port: livereload_port,
+			log_level: 3
 		});
 	});
 
