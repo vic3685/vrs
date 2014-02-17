@@ -1,0 +1,10 @@
+<div class="row more">
+	<p>More photos in <strong>{{resources.albuminfo.name}}</strong></p>
+	<div class="thumbnails">
+		{{#each resources.album_photos.data}}
+			<li class="thumb">
+				<a href="/{{../parameters.album}}/{{id}}"><img src="https://graph.facebook.com/{{id}}/picture?type=album" class="img-responsive"/></a>
+			</li>
+		{{/each}}
+	</div>
+</div>
