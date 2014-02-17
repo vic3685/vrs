@@ -9,8 +9,6 @@ $md-thumb-height: 100px; //Thumbnail height in album and photo view
 $sm-thumb-height: 80px;
 $md-small-text: 10px;    
 
-
-
 $col-light-grey: #e4e4e4;
 $col-dark-grey: #333333;
 $col-bootstrap-blue: #428bca;
@@ -65,6 +63,8 @@ $col-bootstrap-blue: #428bca;
 }
 .footer{ color: #000; font-size: $md-small-text; text-align: right; }
 
+
+/* MEDIA QUERIES */
 @media screen and (max-width: 992px) {
 	.itemInfo {
 		margin-bottom: 20px;
@@ -96,11 +96,7 @@ $col-bootstrap-blue: #428bca;
 	.itemInfo {
 		.linkback {position: relative !important; }
 	}
-	
 }
 @media screen and (max-width: 450px) {
-	
 	.well .col-xs-6 {width: 100%;}
-
-	
 }

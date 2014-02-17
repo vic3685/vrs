@@ -2,7 +2,6 @@
    Use requirejs (http://requirejs.org/) to include more JS files.
    You don't need to include requirejs yourself!
    The Grunt scripts will automatically merge all these files into /compiled/scripts.js */
-   
   
 $(function() {
 
@@ -19,7 +18,7 @@ $(function() {
 			loadContent(link);
 		});
 	} 
-
+	
 	var $mainContent = $("#mainImage"),
 		$contentInfo = $(".album_photos .info"),
 		$el;
@@ -30,7 +29,6 @@ $(function() {
 			.find("img")
 			.fadeOut(200, function() { // fade out the content of the current page
 				$mainContent
-				//.hide()
 				.load(href + " #mainImage img", function() {	
 					$(".thumbnails a").removeClass("current");
 					$(".thumbnails a[href$='" + href + "']").addClass("current");
@@ -38,10 +36,7 @@ $(function() {
 			});	
 		$(".itemInfo")
 			.fadeOut(200, function() {
-				console.log("new attempt started");
-				$(".itemInfo").load(href + " .itemInfo > *", function() {$(this).fadeIn(200);console.log("new attempt over");});
-				
+				$(".itemInfo").load(href + " .itemInfo > *", function() {$(this).fadeIn(200);});
 			});
 	};
-
 });
