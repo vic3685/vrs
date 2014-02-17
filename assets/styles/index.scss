@@ -6,19 +6,30 @@
 $md-img-height: 400px; //Image max height in photo and album view
 $md-album-height: 130px; //Thumbnail max height in album list view
 $md-thumb-height: 100px; //Thumbnail height in album and photo view
+$sm-thumb-height: 80px;
 $md-small-text: 10px;    
+
+
 
 $col-light-grey: #e4e4e4;
 $col-dark-grey: #333333;
 $col-bootstrap-blue: #428bca;
+
+/* MIXINS */
+@mixin rounded-corners($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
  
+/* MD AND LG CSS - resolutions > 992px */
 .main {
 	margin: 30px auto; padding: 30px;
 	background-color: #000; color: $col-light-grey;
-	
+	.row {margin: auto 0;}
 	.info {
 		padding-right: 30px;
-		
+		.itemInfo {position: relative;}
 		.logo {margin: 10px 0 30px;}
 	}
 	.well {
@@ -32,22 +43,64 @@ $col-bootstrap-blue: #428bca;
 	}
 	
 	#mainImage {height: $md-img-height; 
-		img { height: $md-img-height;  width: auto !important; margin: auto;	}
+		img { max-height: $md-img-height;  width: auto !important; margin: auto;	}
 	}
 	
-	.thumbnails {
-		background-color: $col-light-grey; height: 2* $md-thumb-height + 15; overflow-y: auto;
-		.thumb {
-			list-style: none; display: inline-block; height:$md-thumb-height;
-			
-			a {
-				margin: 2px; display: inline-block;
-				&.current {background: $col-bootstrap-blue; }
-				img {height: $md-thumb-height; width: auto !important; padding: 3px; }
-			}
+	.more {
+		padding-top: 30px; 
 		
+		.thumbnails {
+			background-color: $col-light-grey; max-height: 2* $md-thumb-height + 15; overflow-y: auto;
+			.thumb {
+				list-style: none; display: inline-block; height:$md-thumb-height;
+				
+				a {
+					margin: 2px; display: inline-block;
+					&.current {background: $col-bootstrap-blue; }
+					img {height: $md-thumb-height; width: auto !important; padding: 3px; }
+				}
+			}		
 		}
-		
 	}
 }
 .footer{ color: #000; font-size: $md-small-text; text-align: right; }
+
+@media screen and (max-width: 992px) {
+	.itemInfo {
+		margin-bottom: 20px;
+		.linkback {position: absolute; bottom: 0; right: 0;}
+	}
+	.well .detail {text-align: center;}
+	.main {
+		#mainImage {max-height: $md-img-height; height: auto; 
+			img { max-height: $md-img-height;  width: auto !important; height: auto; margin: auto;	}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.main {
+		margin: 0; @include rounded-corners(0px); padding: 15px;
+		.album_photos > *{padding: 0;}
+		.more {		
+			.thumbnails {
+				max-height: 3* $sm-thumb-height + 22; ;
+				.thumb { height:$sm-thumb-height;
+					a img {height:$sm-thumb-height;}
+				}
+			}
+		}
+	}
+	.footer {color: #fff; background-color: #000; padding-right: 30px;}
+	
+	.itemInfo {
+		.linkback {position: relative !important; }
+	}
+	
+}
+@media screen and (max-width: 450px) {
+	
+	.well .col-xs-6 {width: 100%;}
+
+	
+}
