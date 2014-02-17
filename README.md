@@ -1,5 +1,9 @@
 # Killer Photos
 
-## Working On This Website
+Based on the Solidus site template, this is a responsive photo site featuring the Facebook photo albums from the band The Killers.
 
-After first cloning this repository, you'll need to run `npm install` in the base directory (that's the one with `package.json` in it) to install all the modules the [Grunt](http://gruntjs.com) scripts depend on. Doing this will enable the `grunt dev` command, which will do a [variety of development related tasks](https://github.com/SparkartGroupInc/solidus-site-template#grunt-tasks) for you.
+It uses the Bootstrap grid system and responsive features, Modernizr to verify if a browser supports HTML5 history, HTML5 pushTags. 
+
+Photos are loaded through the Facebook Graph API.
+
+Site was tested on Chrome, Firefox and IE10.
