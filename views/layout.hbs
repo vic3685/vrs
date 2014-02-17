@@ -14,14 +14,17 @@
 	{{/dev}}
 	<!-- Site context, made available for use in client side javascript -->
 	<script>{{{context}}}</script>
+	<script src="/scripts/modernizr.js"></script>
 	<script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/bootstrap.min.js"></script>
-	<script src="/compiled/scripts.js"></script>
 
 </head>
 <body id="page-{{page.name}}">
-
-	{{{body}}}
-
+	<div class="container main panel">
+		{{{body}}}
+	</div>
+	<div class="container footer"><div class="row"><p>By Victoria Ruiz Schulze. Best viewed in Chrome and Firefox.</p></div></div>
+	<!--<script src="/scripts/slider.js"></script>-->
+	<script src="/compiled/scripts.js"></script>
 </body>
 </html>

@@ -1,7 +1,53 @@
 /* All your CSS starts here!
    Use SASS/CSS imports to pull in more files.
    The Grunt scripts will automatically merge all these files into /compiled/styles.css */
-   
-.header {}
-.main {}
-.footer{}
+
+/* VARS */
+$md-img-height: 400px; //Image max height in photo and album view
+$md-album-height: 130px; //Thumbnail max height in album list view
+$md-thumb-height: 100px; //Thumbnail height in album and photo view
+$md-small-text: 10px;    
+
+$col-light-grey: #e4e4e4;
+$col-dark-grey: #333333;
+$col-bootstrap-blue: #428bca;
+ 
+.main {
+	margin: 30px auto; padding: 30px;
+	background-color: #000; color: $col-light-grey;
+	
+	.info {
+		padding-right: 30px;
+		
+		.logo {margin: 10px 0 30px;}
+	}
+	.well {
+		a.thumb {
+			display: block; height: $md-album-height; overflow: hidden; text-align: center;
+			
+			img {height: $md-album-height; width: auto !important;}
+		}
+		.detail {height: 70px;}
+		p {color: $col-dark-grey; font-size: $md-small-text;}
+	}
+	
+	#mainImage {height: $md-img-height; 
+		img { height: $md-img-height;  width: auto !important; margin: auto;	}
+	}
+	
+	.thumbnails {
+		background-color: $col-light-grey; height: 2* $md-thumb-height + 15; overflow-y: auto;
+		.thumb {
+			list-style: none; display: inline-block; height:$md-thumb-height;
+			
+			a {
+				margin: 2px; display: inline-block;
+				&.current {background: $col-bootstrap-blue; }
+				img {height: $md-thumb-height; width: auto !important; padding: 3px; }
+			}
+		
+		}
+		
+	}
+}
+.footer{ color: #000; font-size: $md-small-text; text-align: right; }
