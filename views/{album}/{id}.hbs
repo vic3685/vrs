@@ -1,0 +1,34 @@
+{{!
+{
+	"title": "Killer Photo Album",
+	"name": "album", 
+	"description": "Nice photo album.",
+	"resources": {
+		"albuminfo": "https://graph.facebook.com/{album}?field=name,created_time",
+		"album_photos": "https://graph.facebook.com/{album}/photos?fields=image,name",
+		"photos": "https://graph.facebook.com/{id}?fields=name,source"
+	}
+}
+}}
+<div class="row album_photos">
+	<div class="col-md-4 info">
+		<img class="img-responsive logo" src="/images/logo.png">
+		<div class="itemInfo">
+			<h3>{{resources.photos.name}}</h3>
+			<p>Added on:{{formatDate resources.photos.created_time "%B %o %Y"}}</p>	
+		</div>
+	</div>
+	<div id="mainImage" class="col-md-8">
+		<img data-src="https://graph.facebook.com/{{resources.photos.id}}/picture?type=thumbnail" src="{{resources.photos.source}}" class="img-responsive"/>
+	</div>
+</div>
+<div class="row more">
+	<p>More photos in <strong>{{resources.albuminfo.name}}</strong></p>
+	<div class="thumbnails">
+		{{#each resources.album_photos.data}}
+			<li class="thumb">
+				<a href="/{{../parameters.album}}/{{id}}"><img src="https://graph.facebook.com/{{id}}/picture?type=album" class="img-responsive"/></a>
+			</li>
+		{{/each}}
+	</div>
+</div>
